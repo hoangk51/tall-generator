@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+use Livewire\WithPagination;
+use App\Models\$MODEL_NAME$;
+
+class $MODEL_NAME$ extends Component
+{
+    use WithPagination;
+    public $data, $selected_id ;
+    public $createMode = false;
+    public $updateMode = false;
+    public $filter = [];
+    //public $languages = [];
+
+     public function updatingFilter()
+    {
+        $this->resetPage();
+    }
+
+
+     public function mount(){
+    
+    }
+ 
+    public function render()
+    {
+        $model = $MODEL_NAME$::orderBy('id','desc');
+        $filter= $this->filter;
+       // if(isset($filter['title']))  $model = $model->where('title','like','%'.$filter['title'].'%');
+        $datas = $model->paginate(10);
+        return view('livewire.$MODEL_NAME_PLURAL_SNAKE$.index',[
+           'datas'=>$datas
+        ] );
+    }
+
+    public function close(){
+        $this->createMode = false;
+        $this->updateMode = false;
+    }
+
+      public function create()
+    {
+        $this->resetInput();
+        $this->createMode = true;
+        $this->updateMode = false;
+
+    }
+      public function store()
+    {
+        $model = $MODEL_NAME$::create($this->data);
+        $this->resetInput();
+        $this->emit('add');
+        $this->createMode = false;
+    }
+
+     public function edit($id)
+    {
+        $model = $MODEL_NAME$::findOrFail($id);
+        $this->data = $model->toArray();
+        $this->selected_id = $id;
+        $this->createMode = false;
+        $this->updateMode = true;
+    }
+
+    public function update()
+    {
+        $this->validate([
+            'selected_id' => 'required|numeric',
+        ]);
+
+        if ($this->selected_id) {
+            $model = $MODEL_NAME$::find($this->selected_id);
+            $model->update($this->data);
+            $this->resetInput();
+            $this->updateMode = false;
+            $this->emit('update');
+        }
+    }
+
+
+      private function resetInput()
+    {
+        $this->reset([
+            'data',
+        ]);
+    }
+
+}

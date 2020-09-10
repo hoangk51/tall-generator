@@ -1,10 +1,10 @@
 {
-    "name": "hoangk51/livewire-generator",
+    "name": "hoangk51/tall-generator",
     "type": "library",
-    "description": "Livewire Generator",
+    "description": "Tall Generator",
     "keywords": [
         "laravel",
-        "livewire",
+        "tall",
         "api",
         "model",
         "request",

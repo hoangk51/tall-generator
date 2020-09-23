@@ -32,7 +32,7 @@ class MenuGenerator extends BaseGenerator
                 'views/'
             )
         ).$commandData->getAddOn('menu.menu_file');
-        $this->templateType = config('infyom.laravel_generator.templates', 'livewire-templates');
+        $this->templateType = config('infyom.laravel_generator.templates', 'tall-templates');
 
         $this->menuContents = file_get_contents($this->path);
 

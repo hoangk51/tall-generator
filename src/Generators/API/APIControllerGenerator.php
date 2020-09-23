@@ -36,7 +36,7 @@ class APIControllerGenerator extends BaseGenerator
             $templateName .= '_locale';
         }
 
-        $templateData = get_template("api.controller.$templateName", 'livewire-generator');
+        $templateData = get_template("api.controller.$templateName", 'tall-generator');
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
         $templateData = $this->fillDocs($templateData);
@@ -56,7 +56,7 @@ class APIControllerGenerator extends BaseGenerator
             $templateType = 'swagger-generator';
         } else {
             $templatePrefix = 'api.docs.controller';
-            $templateType = 'livewire-generator';
+            $templateType = 'tall-generator';
         }
 
         foreach ($methods as $method) {

@@ -27,7 +27,7 @@ class ViewServiceProviderGenerator extends BaseGenerator
      */
     public function generate()
     {
-        $templateData = get_template_file_path('view_service_provider', 'livewire-generator');
+        $templateData = get_template_file_path('view_service_provider', 'tall-generator');
 
         $destination = $this->commandData->config->pathViewProvider;
 
@@ -75,7 +75,7 @@ class ViewServiceProviderGenerator extends BaseGenerator
     public function addViewComposer()
     {
         $mainViewContent = file_get_contents($this->commandData->config->pathViewProvider);
-        $newViewStatement = get_template('scaffold.view_composer', 'livewire-generator');
+        $newViewStatement = get_template('scaffold.view_composer', 'tall-generator');
         $newViewStatement = fill_template($this->commandData->dynamicVars, $newViewStatement);
 
         $newViewStatement = infy_nl(1).$newViewStatement;

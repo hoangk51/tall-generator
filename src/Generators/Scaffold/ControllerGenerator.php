@@ -24,7 +24,7 @@ class ControllerGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathController;
-        $this->templateType = config('infyom.laravel_generator.templates', 'livewire-templates');
+        $this->templateType = config('infyom.laravel_generator.templates', 'tall-templates');
         $this->fileName = $this->commandData->modelName.'Controller.php';
     }
 
@@ -41,7 +41,7 @@ class ControllerGenerator extends BaseGenerator
                 $templateName .= '_locale';
             }
 
-            $templateData = get_template("scaffold.controller.$templateName", 'livewire-generator');
+            $templateData = get_template("scaffold.controller.$templateName", 'tall-generator');
 
             $this->generateDataTable();
         } else {
@@ -54,7 +54,7 @@ class ControllerGenerator extends BaseGenerator
                 $templateName .= '_locale';
             }
 
-            $templateData = get_template("scaffold.controller.$templateName", 'livewire-generator');
+            $templateData = get_template("scaffold.controller.$templateName", 'tall-generator');
 
             $paginate = $this->commandData->getOption('paginate');
 
@@ -80,7 +80,7 @@ class ControllerGenerator extends BaseGenerator
             $templateName .= '_locale';
         }
 
-        $templateData = get_template('scaffold.'.$templateName, 'livewire-generator');
+        $templateData = get_template('scaffold.'.$templateName, 'tall-generator');
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
 

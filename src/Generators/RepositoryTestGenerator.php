@@ -25,7 +25,7 @@ class RepositoryTestGenerator extends BaseGenerator
 
     public function generate()
     {
-        $templateData = get_template('test.repository_test', 'livewire-generator');
+        $templateData = get_template('test.repository_test', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 

@@ -1,1 +1,1 @@
-Route::livewire('/admin/$MODEL_NAME_SNAKE$', 'admin-$MODEL_NAME_SNAKE$');
+Route::livewire('/admin/$MODEL_NAME_SNAKE$','admin-$MODEL_NAME_SNAKE$');

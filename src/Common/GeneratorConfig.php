@@ -249,16 +249,17 @@ class GeneratorConfig
         $commandData->addDynamicVariable('$NAMESPACE_REPOSITORIES_TESTS$', $this->nsRepositoryTests);
         $commandData->addDynamicVariable('$NAMESPACE_TESTS$', $this->nsTests);
 
-        $commandData->addDynamicVariable('$TABLE_NAME$', $this->tableName);
+        $commandData->addDynamicVariable('$TABLE_NAME$', $this->tableName);//foo_bars
         $commandData->addDynamicVariable('$TABLE_NAME_TITLE$', Str::studly($this->tableName));
         $commandData->addDynamicVariable('$PRIMARY_KEY_NAME$', $this->primaryName);
 
-        $commandData->addDynamicVariable('$MODEL_NAME$', $this->mName);
-        $commandData->addDynamicVariable('$MODEL_NAME_CAMEL$', $this->mCamel);
-        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL$', $this->mPlural);
-        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL_CAMEL$', $this->mCamelPlural);
-        $commandData->addDynamicVariable('$MODEL_NAME_SNAKE$', $this->mSnake);
-        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL_SNAKE$', $this->mSnakePlural);
+        //contacts
+        $commandData->addDynamicVariable('$MODEL_NAME$', $this->mName);//FooBar
+        $commandData->addDynamicVariable('$MODEL_NAME_CAMEL$', $this->mCamel); // fooBar
+        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL$', $this->mPlural);  // foo_bars
+        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL_CAMEL$', $this->mCamelPlural);// fooBars
+        $commandData->addDynamicVariable('$MODEL_NAME_SNAKE$', $this->mSnake); //foo_bar
+        $commandData->addDynamicVariable('$MODEL_NAME_PLURAL_SNAKE$', $this->mSnakePlural);//foo_bars
         $commandData->addDynamicVariable('$MODEL_NAME_DASHED$', $this->mDashed);
         $commandData->addDynamicVariable('$MODEL_NAME_PLURAL_DASHED$', $this->mDashedPlural);
         $commandData->addDynamicVariable('$MODEL_NAME_SLASH$', $this->mSlash);
@@ -341,7 +342,7 @@ class GeneratorConfig
         } else {
             $this->mPlural = Str::plural($this->mName);
         }
-        $this->mCamel = Str::camel($this->mName);
+        $this->mCamel = Str::camel($this->mName);  
         $this->mCamelPlural = Str::camel($this->mPlural);
         $this->mSnake = Str::snake($this->mName);
         $this->mSnakePlural = Str::snake($this->mPlural);

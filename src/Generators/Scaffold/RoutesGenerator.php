@@ -25,9 +25,9 @@ class RoutesGenerator
         $this->path = $commandData->config->pathRoutes;
         $this->routeContents = file_get_contents($this->path);
         if (!empty($this->commandData->config->prefixes['route'])) {
-            $this->routesTemplate = get_template('scaffold.routes.prefix_routes', 'livewire-generator');
+            $this->routesTemplate = get_template('scaffold.routes.prefix_routes', 'tall-generator');
         } else {
-            $this->routesTemplate = get_template('scaffold.routes.routes', 'livewire-generator');
+            $this->routesTemplate = get_template('scaffold.routes.routes', 'tall-generator');
         }
         $this->routesTemplate = fill_template($this->commandData->dynamicVars, $this->routesTemplate);
     }

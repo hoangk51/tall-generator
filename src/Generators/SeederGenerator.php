@@ -31,7 +31,7 @@ class SeederGenerator extends BaseGenerator
 
     public function generate()
     {
-        $templateData = get_template('seeds.model_seeder', 'livewire-generator');
+        $templateData = get_template('seeds.model_seeder', 'tall-generator');
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
 

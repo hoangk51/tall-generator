@@ -89,7 +89,7 @@ return [
     |
     */
 
-    'templates'         => 'livewire-templates',
+    'templates'         => 'tall-templates',
 
     /*
     |--------------------------------------------------------------------------

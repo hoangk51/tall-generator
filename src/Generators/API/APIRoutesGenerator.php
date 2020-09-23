@@ -28,9 +28,9 @@ class APIRoutesGenerator extends BaseGenerator
         $this->routeContents = file_get_contents($this->path);
 
         if (!empty($this->commandData->config->prefixes['route'])) {
-            $routesTemplate = get_template('api.routes.prefix_routes', 'livewire-generator');
+            $routesTemplate = get_template('api.routes.prefix_routes', 'tall-generator');
         } else {
-            $routesTemplate = get_template('api.routes.routes', 'livewire-generator');
+            $routesTemplate = get_template('api.routes.routes', 'tall-generator');
         }
 
         $this->routesTemplate = fill_template($this->commandData->dynamicVars, $routesTemplate);

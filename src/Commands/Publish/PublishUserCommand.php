@@ -41,7 +41,7 @@ class PublishUserCommand extends PublishBaseCommand
     private function copyViews()
     {
         $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'livewire-templates');
+        $templateType = config('infyom.laravel_generator.templates', 'tall-templates');
 
         $this->createDirectories($viewsPath.'users');
 
@@ -78,7 +78,7 @@ class PublishUserCommand extends PublishBaseCommand
 
         $routeContents = file_get_contents($path);
 
-        $routesTemplate = get_template('routes.user', 'livewire-generator');
+        $routesTemplate = get_template('routes.user', 'tall-generator');
 
         $routeContents .= "\n\n".$routesTemplate;
 
@@ -89,7 +89,7 @@ class PublishUserCommand extends PublishBaseCommand
     private function updateMenu()
     {
         $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'livewire-templates');
+        $templateType = config('infyom.laravel_generator.templates', 'tall-templates');
         $path = $viewsPath.'layouts/menu.blade.php';
         $menuContents = file_get_contents($path);
         $sourceFile = file_get_contents(get_template_file_path('scaffold/users/menu', $templateType));
@@ -101,9 +101,9 @@ class PublishUserCommand extends PublishBaseCommand
 
     private function publishUserController()
     {
-        $templateData = get_template('user/user_controller', 'livewire-generator');
+        $templateData = get_template('user/user_controller', 'tall-generator');
         if (!config('infyom.laravel_generator.options.repository_pattern')) {
-            $templateData = get_template('user/user_controller_without_repository', 'livewire-generator');
+            $templateData = get_template('user/user_controller_without_repository', 'tall-generator');
             $templateData = $this->fillTemplate($templateData);
         }
 
@@ -124,7 +124,7 @@ class PublishUserCommand extends PublishBaseCommand
 
     private function publishUserRepository()
     {
-        $templateData = get_template('user/user_repository', 'livewire-generator');
+        $templateData = get_template('user/user_repository', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 
@@ -145,7 +145,7 @@ class PublishUserCommand extends PublishBaseCommand
 
     private function publishCreateUserRequest()
     {
-        $templateData = get_template('user/create_user_request', 'livewire-generator');
+        $templateData = get_template('user/create_user_request', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 
@@ -166,7 +166,7 @@ class PublishUserCommand extends PublishBaseCommand
 
     private function publishUpdateUserRequest()
     {
-        $templateData = get_template('user/update_user_request', 'livewire-generator');
+        $templateData = get_template('user/update_user_request', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 

@@ -37,7 +37,7 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function copyView()
     {
         $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'livewire-templates');
+        $templateType = config('infyom.laravel_generator.templates', 'tall-templates');
 
         $this->createDirectories($viewsPath);
 
@@ -123,7 +123,7 @@ class LayoutPublishCommand extends PublishBaseCommand
 
         $routeContents = file_get_contents($path);
 
-        $routesTemplate = get_template('routes.auth', 'livewire-generator');
+        $routesTemplate = get_template('routes.auth', 'tall-generator');
 
         $routeContents .= "\n\n".$routesTemplate;
 
@@ -133,7 +133,7 @@ class LayoutPublishCommand extends PublishBaseCommand
 
     private function publishHomeController()
     {
-        $templateData = get_template('home_controller', 'livewire-generator');
+        $templateData = get_template('home_controller', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 

@@ -24,7 +24,7 @@ class MigrationGenerator extends BaseGenerator
 
     public function generate()
     {
-        $templateData = get_template('migration', 'livewire-generator');
+        $templateData = get_template('migration', 'tall-generator');
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
 

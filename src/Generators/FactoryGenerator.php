@@ -32,7 +32,7 @@ class FactoryGenerator extends BaseGenerator
 
     public function generate()
     {
-        $templateData = get_template('factories.model_factory', 'livewire-generator');
+        $templateData = get_template('factories.model_factory', 'tall-generator');
 
         $templateData = $this->fillTemplate($templateData);
 
